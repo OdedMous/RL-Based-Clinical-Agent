@@ -314,9 +314,6 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <h2 class="title">Motivation</h2>
     <div class="content">
       <p>
-        Despite recent progress in medical decision-making with AI, the scarcity of labeled data
-        remains a key challenge. Our motivation is to explore whether knowledge from related tasks
-        can help improve performance on low-data medical NLP tasks.
       </p>
     </div>
 
@@ -327,7 +324,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       </div>
       <div class="column is-half">
         <p>
-          Illustration of the data scarcity problem in medical NLP tasks.
+         <strong>Process of Sepsis:</strong> Sepsis occurs when an infection causes blood vessels to leak, impairing oxygen delivery to organs. In severe cases, this may result in septic shock, a life-threatening drop in blood pressure and multiple organ dysfunction.
         </p>
       </div>
     </div>
@@ -336,7 +333,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered">
       <div class="column is-half">
         <p>
-          Knowledge can be transferred from related tasks to improve performance on the main task.
+          <strong>Treatment:</strong> Treatment for sepsis in the ICU focuses on three main components: blood pressure stabilization using two types of medications (vasopressors and IV fluids), supportive care, and infection control. In this work, we focus on the first component - optimizing medication scheduling and dosing levels.
         </p>
       </div>
       <div class="column is-half">
@@ -347,11 +344,12 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <!-- Image 3: description on the right -->
     <div class="columns is-vcentered">
       <div class="column is-half">
-        <img src="static/images/how_to_treat_sepsis.jpg" alt="Motivation image 3" style="border-radius:10px; width:100%;">
+        <img src="static/images/sepsis_challenges.jpg" alt="Motivation image 3" style="border-radius:10px; width:100%;">
       </div>
       <div class="column is-half">
         <p>
-          Our goal is to design multi-task architectures that leverage supporting datasets efficiently.
+          <strong>Challenges:</strong> Treating sepsis is difficult because of its rapid progression, immediate medication effects, multi-organ impact, and individual patient variability. These challenges often lead to ineffective treatment, emphasizing the need for improved strategies.
+          
         </p>
       </div>
     </div>
