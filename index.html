@@ -360,6 +360,72 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 
 
 
+<!-- Problem Formulation Section -->
+<section class="section" id="problem-formulation">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Problem Formulation</h2>
+    <p class="subtitle has-text-centered mb-6">
+      We model sepsis management as a reinforcement learning problem, where the agent (clinician or AI)
+      optimizes treatment actions based on the patient’s state and outcomes.
+    </p>
+
+    <!-- Row 1 -->
+    <div class="columns is-vcentered mb-6">
+      <div class="column is-half">
+        <p><strong>State (S):</strong> A vector that represents the patient's demographic information and physiological status. Includes around 40 different variables.
+</p>
+      </div>
+      <div class="column is-half">
+        <figure class="image">
+          <img src="static/images/state.jpg" alt="Patient as environment">
+        </figure>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="columns is-vcentered mb-6">
+      <div class="column is-half">
+        <p><strong>Action (A):</strong> A combination of drug doses of the two medication: vasopressor and IV fluids. Note that that "zero drug" is also possibole. </p>
+      </div>
+      <div class="column is-half">
+        <figure class="image">
+          <img src="static/images/action.jpg" alt="Actions representation">
+        </figure>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="columns is-vcentered mb-6">
+      <div class="column is-half">
+        <p><strong>Reward Function:</strong> A function that assigns a scalar value for taking action a in state s, providing feedback on the quality of the action. Focuses on short-term clinical goals:
+-    Reach Target Blood Pressure (BP=65)
+-    Reduce lactate levels
+</p>
+      </div>
+      <div class="column is-half">
+        <figure class="image">
+          <img src="static/images/reward.jpg" alt="Reward signal">
+        </figure>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <p><strong>Patient Trajectory:</strong> A sequence of states, actions and rewards through time.</p>
+      </div>
+      <div class="column is-half">
+        <figure class="image">
+          <img src="static/images/trajectory.jpg" alt="Optimal policy objective">
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 <!-- Motivation Section -->
 <section class="section">
   <div class="container is-max-desktop">
