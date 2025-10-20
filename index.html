@@ -364,67 +364,68 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 <section class="section" id="problem-formulation">
   <div class="container is-max-desktop">
     <h2 class="title">Problem Formulation</h2>
+
+    <div class="content">
       <p>
-              We model sepsis management as a reinforcement learning problem, where the agent (clinician or AI)
-      optimizes treatment actions based on the patient’s state and outcomes.
+        We model sepsis management as a reinforcement learning problem, where the agent (clinician or AI)
+        optimizes treatment actions based on the patient’s state and outcomes.
       </p>
     </div>
 
     <!-- Row 1 -->
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
-        <p><strong>State (S):</strong> A vector that represents the patient's demographic information and physiological status. Includes around 40 different variables.
-</p>
+        <p>
+          <strong>State (S):</strong> A vector that represents the patient's demographic information and physiological status,
+          including around 40 different variables.
+        </p>
       </div>
       <div class="column is-half">
-        <figure class="image">
-          <img src="static/images/state.jpg" alt="Patient as environment">
-        </figure>
+        <img src="static/images/state.jpg" alt="Patient as environment" style="border-radius:10px; width:100%;">
       </div>
     </div>
 
     <!-- Row 2 -->
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
-        <p><strong>Action (A):</strong> A combination of drug doses of the two medication: vasopressor and IV fluids. Note that that "zero drug" is also possibole. </p>
+        <p>
+          <strong>Action (A):</strong> A combination of two medication doses — vasopressor and IV fluids. 
+          A “zero dose” (no drug) is also possible.
+        </p>
       </div>
       <div class="column is-half">
-        <figure class="image">
-          <img src="static/images/action.jpg" alt="Actions representation">
-        </figure>
+        <img src="static/images/action.jpg" alt="Actions representation" style="border-radius:10px; width:100%;">
       </div>
     </div>
 
     <!-- Row 3 -->
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
-        <p><strong>Reward Function:</strong> A function that assigns a scalar value for taking action a in state s, providing feedback on the quality of the action. Focuses on short-term clinical goals:
--    Reach Target Blood Pressure (BP=65)
--    Reduce lactate levels
-</p>
+        <p>
+          <strong>Reward Function:</strong> A scalar value providing feedback on treatment quality. 
+          The short-term goals include reaching target blood pressure (BP=65) and reducing lactate levels.
+        </p>
       </div>
       <div class="column is-half">
-        <figure class="image">
-          <img src="static/images/reward.jpg" alt="Reward signal">
-        </figure>
+        <img src="static/images/reward.jpg" alt="Reward signal" style="border-radius:10px; width:100%;">
       </div>
     </div>
 
     <!-- Row 4 -->
     <div class="columns is-vcentered">
       <div class="column is-half">
-        <p><strong>Patient Trajectory:</strong> A sequence of states, actions and rewards through time.</p>
+        <p>
+          <strong>Patient Trajectory:</strong> A sequence of states, actions, and rewards over time, 
+          representing the treatment progression.
+        </p>
       </div>
       <div class="column is-half">
-        <figure class="image">
-          <img src="static/images/trajectory.jpg" alt="Optimal policy objective">
-        </figure>
+        <img src="static/images/trajectory.jpg" alt="Optimal policy objective" style="border-radius:10px; width:100%;">
       </div>
     </div>
-
   </div>
 </section>
-
+<!-- End Problem Formulation Section -->
 
 
 <!-- Motivation Section -->
