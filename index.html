@@ -488,40 +488,51 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       <div class="column is-two-thirds has-text-centered">
         <figure>
           <img src="static/images/exp1.jpg" alt="First experiment results" style="border-radius:10px; width:100%;">
-          <figcaption>Results from the first experiment showing...</figcaption>
+          <figcaption></figcaption>
         </figure>
       </div>
     </div>
 
-<!-- Second Experiment -->
-<h3 class="subtitle">Clinicians vs RL decision-making analysis</h3>
-<p>
-  We analyzed how clinicians and our RL agent make treatment decisions across patient risk levels by examining their action
-  histogram matrices, where each cell represents the proportion (%) of actions taken for a specific
-  combination of VPs (x-axis) and IV fluid doses (y-axis).
-
-  The RL agent, like the Clinicians, exhibits risk-aware behavior, administering higher doses for high-risk patients. However, for these high-risk states, it consistently provides some medication, rarely selecting zero-dose actions, unlike clinicians who sometimes withhold treatment.
-</p>
-
-<!-- Two images side by side below -->
-<div class="columns is-vcentered mb-6">
-  <div class="column is-half has-text-centered">
-    <figure>
-      <img src="static/images/exp2.1.jpg" alt="Second experiment additional left" style="border-radius:10px; width:100%;">
-      <figcaption></figcaption>
-    </figure>
-  </div>
-  <div class="column is-half has-text-centered">
-    <figure>
-      <img src="static/images/exp2.2.jpg" alt="Second experiment additional right" style="border-radius:10px; width:100%;">
-      <figcaption></figcaption>
-    </figure>
-  </div>
-</div>
-
-
-  </div>
-</section>
+    <!-- Second Experiment -->
+    <h3 class="subtitle">Clinicians vs RL decision-making analysis</h3>
+    
+    <!-- Row 1: Text left, image right -->
+    <div class="columns is-vcentered mb-6">
+      <!-- Left: Text -->
+      <div class="column is-half">
+        <p>
+          We analyzed how clinicians and our RL agent make treatment decisions across patient risk levels, by examining their action 
+          histogram matrices, where each cell represents the proportion (%) of actions taken for a specific
+          combination of VPs (x-axis) and IV fluid doses (y-axis). The RL agent, like the Clinicians, exhibits risk-aware behavior, administering higher doses for high-risk patients. However, for these high-risk states, it consistently provides some medication, rarely selecting zero-dose actions, unlike clinicians who sometimes withhold treatment.
+        </p>
+      </div>
+    
+      <!-- Right: First image -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="static/images/exp1.jpg" alt="Second experiment result" style="border-radius:10px; width:100%;">
+          <figcaption>Results of second experiment.</figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <!-- Row 2: Second image left, text right -->
+    <div class="columns is-vcentered mb-6">
+      <!-- Left: Second image -->
+      <div class="column is-two-thirds has-text-centered">
+        <figure>
+          <img src="static/images/exp2.jpg" alt="Second experiment left" style="border-radius:10px; width:100%;">
+          <figcaption>Additional results of second experiment.</figcaption>
+        </figure>
+      </div>
+    
+      <!-- Right: Text -->
+      <div class="column is-one-third">
+        <p>
+          The RL agent, like the Clinicians, exhibits risk-aware behavior, administering higher doses for high-risk patients. However, for these high-risk states, it consistently provides some medication, rarely selecting zero-dose actions, unlike clinicians who sometimes withhold treatment.
+        </p>
+      </div>
+    </div>
 <!-- End Results Section -->
 
 
