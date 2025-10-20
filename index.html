@@ -557,7 +557,8 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       <!-- Text -->
       <div class="column is-half">
         <p>
-          We trained models using different numbers of past patient states (1, 5, 10, 20, 60 minutes) and measured their estimated return.  
+          <strong>Effect of Context Size</strong> <br>
+          We trained models using different numbers of past patient states (e.g., 1, 5, 10, 20 minutes) and measured their estimated return.  
           Performance improved with longer context up to 60 minutes, after which additional history added noise and slightly reduced performance.
         </p>
       </div>
@@ -567,8 +568,9 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered mb-6">
       <!-- Text -->
       <div class="column is-half">
-        <h4>Layer-Wise Attention Patterns</h4>
+        <h4></h4>
         <p>
+          <strong>Layer-Wise Attention Patterns</strong> <br>
           Analyzing attention weights in the 60-minute model revealed distinct temporal focus across layers.  
           Let the sequence of states be <em>{s<sub>t-60</sub>, … , s<sub>t</sub>}</em>. The attention weights for timestep <em>t</em>, head <em>h</em>, and layer <em>l</em> are represented as <em>A<sub>t</sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>, where <em>A<sub>t</sub><sup>(l,h)</sup>[i]</em> indicates the weight given to the <em>i</em>-th past state <em>s<sub>t-T+i</sub></em>.  
           The average attention vector across all sequences <em>N</em> and heads <em>H</em> is computed as:
@@ -601,6 +603,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       <!-- Text -->
       <div class="column is-half">
         <p>
+          <strong>Attention Interpretability</strong> <br>
           We tested whether attention weights alone can indicate patient risk. Using an XGBoost classifier on the attention vectors, we achieved over 90% precision and recall for both low- and high-risk states, demonstrating that the model’s attention encodes clinically meaningful information.
         </p>
       </div>
