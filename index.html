@@ -367,8 +367,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 
     <div class="content">
       <p>
-        We model sepsis management as a reinforcement learning problem, where the agent (clinician or AI)
-        optimizes treatment actions based on the patient’s state and outcomes.
+       We frame sepsis management as a reinforcement learning problem, in which the agent learns to choose treatment actions that stabilize the patient’s hemodynamic state.
       </p>
     </div>
 
@@ -389,7 +388,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
         <p>
-          <strong>Action (A):</strong> A combination of two medication doses — vasopressor and IV fluids. 
+          <strong>Action (A):</strong> A combination of two medication doses - vasopressor and IV fluids. 
           A “zero dose” (no drug) is also possible.
         </p>
       </div>
@@ -402,8 +401,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
         <p>
-          <strong>Reward Function:</strong> A scalar value providing feedback on treatment quality. 
-          The short-term goals include reaching target blood pressure (BP=65) and reducing lactate levels.
+          <strong>Reward:</strong> A scalar value providing feedback on treatment quality. In our case, it reflects achieving the target blood pressure (BP = 65) and reducing lactate levels.
         </p>
       </div>
       <div class="column is-half">
@@ -415,8 +413,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered">
       <div class="column is-half">
         <p>
-          <strong>Patient Trajectory:</strong> A sequence of states, actions, and rewards over time, 
-          representing the treatment progression.
+          <strong>Patient Trajectory:</strong> A sequence of states, actions, and rewards over time, representing the treatment progression.
         </p>
       </div>
       <div class="column is-half">
@@ -431,12 +428,10 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 <!-- Motivation Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title">Motivation</h2>
+    <h2 class="title">Learning</h2>
     <div class="content">
       <p>
-      Septic shock is a life-threatening condition requiring timely administration of antibiotics,
-      vasopressors and intravenous (IV) fluids. However, the optimal dosing schedule strategy for
-      hemodynamic support remains a matter of discussion.
+We train a transformer-based Q-network to predict action values from patient states. The model takes as input a sequence of recent patient states, allowing it to capture how the patient’s condition evolves over time. The agent minimizes the Bellman error between predicted and target Q-values, gradually learning to select actions that optimize treatment outcomes.
       </p>
     </div>
 
@@ -444,13 +439,13 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-centered">
       <div class="column is-half has-text-centered">
         <figure>
-          <img src="static/images/process_sepsis.jpg" alt="Motivation image 1" style="border-radius: 10px;">
+          <img src="static/images/method.jpg" alt="Motivation image 1" style="border-radius: 10px;">
           <figcaption>Illustration of the data scarcity problem.</figcaption>
         </figure>
       </div>
       <div class="column is-half has-text-centered">
         <figure>
-          <img src="static/images/how_to_treat_sepsis.jpg" alt="Motivation image 2" style="border-radius: 10px;">
+          <img src="static/images/architecture.jpg" alt="Motivation image 2" style="border-radius: 10px;">
           <figcaption>Transfer of knowledge from related tasks.</figcaption>
         </figure>
       </div>
