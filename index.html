@@ -443,20 +443,28 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="content mb-6">
       <p>
       We train an attention-based Q-network to predict action values from patient states, using past recorded trajectories from real patients.
-      The model takes as input a <strong>sequence</strong>strong> of recent patient states, allowing it to capture how the patient’s condition evolves over time.
-      We use clinical data with a <strong>1-minute resolution</strong>strong> to capture rapid physiological changes, unlike previous studies that use 1–4 hour intervals.
+      We use clinical data with a <strong>1-minute resolution</strong> to capture rapid physiological changes, unlike previous studies that use 1–4 hour intervals.
       </p>
     </div>
 
-    <!-- Second Image -->
-    <div class="columns is-centered">
-      <div class="column is-two-thirds has-text-centered">
-        <figure>
-          <img src="static/images/architecture.jpg" alt="image 2" style="border-radius: 10px;">
-          <figcaption>The attention-based Q-network architecture.</figcaption>
-        </figure>
-      </div>
-    </div>
+<!-- Second Image with text -->
+<div class="columns is-vcentered mb-6">
+  
+  <!-- Left: Image with caption below -->
+  <div class="column is-half has-text-centered">
+    <figure>
+      <img src="static/images/architecture.jpg" alt="Attention-based Q-network architecture" style="border-radius:10px; width:90%;">
+      <figcaption>The attention-based Q-network architecture.</figcaption>
+    </figure>
+  </div>
+  
+  <!-- Right: Text -->
+  <div class="column is-half">
+    <p>
+The Q-network takes as input a <strong>sequence</strong> of recent patient states and processes them using transformer encoder layers, allowing it to capture how the patient’s condition evolves over time.    </p>
+  </div>
+
+</div>
 
   </div>
 </section>
