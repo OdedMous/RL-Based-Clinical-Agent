@@ -537,52 +537,49 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 
 
 
-<!-- Study 4: Context Utilization Section -->
-<section class="section" id="study-4">
+<!-- Results: Context Utilization Subsection -->
+<section class="section" id="results-context">
   <div class="container is-max-desktop">
-    <h2 class="title">3) Context Utilization with the Attention Mechanism</h2>
+    <h3 class="title is-4">3) Context Utilization with the Attention Mechanism</h3>
     <p>
-      This study investigates how our RL model uses temporal context through the attention mechanism in the Q-network.
+      This study examines how the RL model leverages temporal context through the attention mechanism in the Q-network.
     </p>
 
     <!-- Passage 1: Effect of Context Size (image left) -->
     <div class="columns is-vcentered mb-6">
-      <!-- Image -->
       <div class="column is-half has-text-centered">
         <figure>
           <img src="static/images/exp3.1.jpg" alt="Effect of context size" style="border-radius:10px; width:100%;">
           <figcaption></figcaption>
         </figure>
       </div>
-      <!-- Text -->
       <div class="column is-half">
         <p>
-          <strong>Effect of Context Size</strong> <br>
-          We trained models using different numbers of past patient states (e.g., 1, 5, 10, 20 minutes) and measured their estimated return.  
-          Performance improved with longer context up to 60 minutes, after which additional history added noise and slightly reduced performance.
+          <strong>Effect of Context Size</strong><br>
+          Models were trained with different numbers of past patient states (1, 5, 10, 20, 60 minutes) and evaluated for estimated return.  
+          Performance improved up to 60 minutes of context; longer sequences added noise, slightly reducing performance.
         </p>
       </div>
     </div>
 
     <!-- Passage 2: Layer-Wise Attention Patterns (image right) -->
     <div class="columns is-vcentered mb-6">
-      <!-- Text -->
       <div class="column is-half">
-        <h4></h4>
         <p>
-          <strong>Layer-Wise Attention Patterns</strong> <br>
-          Analyzing attention weights in the 60-minute model revealed distinct temporal focus across layers.  
-          Let the sequence of states be <em>{s<sub>t-60</sub>, … , s<sub>t</sub>}</em>. The attention weights for timestep <em>t</em>, head <em>h</em>, and layer <em>l</em> are represented as <em>A<sub>t</sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>, where <em>A<sub>t</sub><sup>(l,h)</sup>[i]</em> indicates the weight given to the <em>i</em>-th past state <em>s<sub>t-T+i</sub></em>.  
-          The average attention vector across all sequences <em>N</em> and heads <em>H</em> is computed as:
+          <strong>Layer-Wise Attention Patterns</strong><br>
+          Attention weights of the 60-minute model reveal distinct temporal focus per layer.  
+          Let <em>{s<sub>t-60</sub>, … , s<sub>t</sub>}</em> be the input sequence. Attention at timestep <em>t</em>, head <em>h</em>, layer <em>l</em> is <em>A<sub>t</sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>, where <em>A<sub>t</sub><sup>(l,h)</sup>[i]</em> is the weight for the <em>i</em>-th past state.  
+          The average attention across <em>N</em> sequences and <em>H</em> heads is:
+
         </p>
         <p style="text-align:center;">
-          <em>Ā<sup>(l)</sup> = (1 / (N · H)) &Sigma;<sub>n=1</sub><sup>N</sup> &Sigma;<sub>h=1</sub><sup>H</sup> A<sub>t<sub>n</sub></sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>
+          <em>Ā<sup>(l)</sup> = (1 / (N × H)) ∑<sub>n=1</sub><sup>N</sup> ∑<sub>h=1</sub><sup>H</sup> A<sub>t<sub>n</sub></sub><sup>(l,h)</sup></em>
         </p>
         <p>
-          Layer 1 primarily attends to recent states, while Layer 2 assigns more weight to earlier states in the patient’s history. This demonstrates that different layers capture distinct temporal perspectives to inform treatment decisions.
+          <em>T</em>: sequence length, <em>N</em>: number of sequences, <em>H</em>: attention heads.  
+          Layer 1 focuses on recent states, Layer 2 on earlier states, capturing complementary temporal information.
         </p>
       </div>
-      <!-- Image -->
       <div class="column is-half has-text-centered">
         <figure>
           <img src="static/images/exp3.2.jpg" alt="Layer-wise attention patterns" style="border-radius:10px; width:100%;">
@@ -593,25 +590,24 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 
     <!-- Passage 3: Attention Interpretability (image left) -->
     <div class="columns is-vcentered mb-6">
-      <!-- Image -->
       <div class="column is-half has-text-centered">
         <figure>
           <img src="static/images/exp3.3.jpg" alt="Attention interpretability" style="border-radius:10px; width:100%;">
           <figcaption></figcaption>
         </figure>
       </div>
-      <!-- Text -->
       <div class="column is-half">
         <p>
-          <strong>Attention Interpretability</strong> <br>
-          We tested whether attention weights alone can indicate patient risk. Using an XGBoost classifier on the attention vectors, we achieved over 90% precision and recall for both low- and high-risk states, demonstrating that the model’s attention encodes clinically meaningful information.
+          <strong>Attention Interpretability</strong><br>
+          Using only attention vectors as features, an XGBoost classifier predicted low- vs. high-risk patient states with >90% precision and recall.  
+          This shows that the model’s attention encodes meaningful clinical information.
         </p>
       </div>
     </div>
-    
+
   </div>
 </section>
-<!-- End Study 4 Section -->
+<!-- End Context Utilization Subsection -->
 <!-- End Results Section -->
 
 
