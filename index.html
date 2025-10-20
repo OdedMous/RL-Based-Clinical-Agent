@@ -477,7 +477,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <h2 class="title">Results</h2>
 
     <!-- First Experiment -->
-    <h3 class="subtitle">Agent Performance Comparison</h3>
+    <h3 class="subtitle">1) Agent Performance Comparison</h3>
     <p>
     We evaluated our RL agent against five other agents: Clinicians, Zero-Dose, Max-Dose, Random-Dose, and Supervised Learning (SL).
     Our RL agent achieved the highest median return, demonstrating its superior treatment performance.
@@ -494,7 +494,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     </div>
 
     <!-- Second Experiment -->
-    <h3 class="subtitle">Clinicians vs RL decision-making analysis</h3>
+    <h3 class="subtitle">2) Clinicians vs RL decision-making analysis</h3>
     
     <!-- Row 1: Text left, image right -->
     <div class="columns is-vcentered mb-6">
@@ -534,48 +534,84 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
        Additionally, for high-risk states, it rarely selects zero-dose actions (1.5%), unlike clinicians who sometimes withhold treatment (15%).        </p>
       </div>
     </div>
+
+
+
+<!-- Study 4: Context Utilization Section -->
+<section class="section" id="study-4">
+  <div class="container is-max-desktop">
+    <h2 class="title">Study 4: Context Utilization with the Attention Mechanism</h2>
+    <p>
+      This study investigates how our RL model uses temporal context through the attention mechanism in the Q-network.
+    </p>
+
+    <!-- Passage 1: Effect of Context Size (image left) -->
+    <div class="columns is-vcentered mb-6">
+      <!-- Image -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="static/images/exp1.1.jpg" alt="Effect of context size" style="border-radius:10px; width:100%;">
+          <figcaption>Performance vs. context size.</figcaption>
+        </figure>
+      </div>
+      <!-- Text -->
+      <div class="column is-half">
+        <p>
+          We trained models using different numbers of past patient states (1, 5, 10, 20, 60 minutes) and measured their estimated return.  
+          Performance improved with longer context up to 60 minutes, after which additional history added noise and slightly reduced performance.
+        </p>
+      </div>
+    </div>
+
+    <!-- Passage 2: Layer-Wise Attention Patterns (image right) -->
+    <div class="columns is-vcentered mb-6">
+      <!-- Text -->
+      <div class="column is-half">
+        <h4>Layer-Wise Attention Patterns</h4>
+        <p>
+          Analyzing attention weights in the 60-minute model revealed distinct temporal focus across layers.  
+          Let the sequence of states be <em>{s<sub>t-60</sub>, … , s<sub>t</sub>}</em>. The attention weights for timestep <em>t</em>, head <em>h</em>, and layer <em>l</em> are represented as <em>A<sub>t</sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>, where <em>A<sub>t</sub><sup>(l,h)</sup>[i]</em> indicates the weight given to the <em>i</em>-th past state <em>s<sub>t-T+i</sub></em>.  
+          The average attention vector across all sequences <em>N</em> and heads <em>H</em> is computed as:
+        </p>
+        <p style="text-align:center;">
+          <em>Ā<sup>(l)</sup> = (1 / (N · H)) &Sigma;<sub>n=1</sub><sup>N</sup> &Sigma;<sub>h=1</sub><sup>H</sup> A<sub>t<sub>n</sub></sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>
+        </p>
+        <p>
+          Layer 1 primarily attends to recent states, while Layer 2 assigns more weight to earlier states in the patient’s history. This demonstrates that different layers capture distinct temporal perspectives to inform treatment decisions.
+        </p>
+      </div>
+      <!-- Image -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="static/images/exp3.2.jpg" alt="Layer-wise attention patterns" style="border-radius:10px; width:100%;">
+          <figcaption>Average attention vectors for layers 1 and 2.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Passage 3: Attention Interpretability (image left) -->
+    <div class="columns is-vcentered mb-6">
+      <!-- Image -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="static/images/exp3.3.jpg" alt="Attention interpretability" style="border-radius:10px; width:100%;">
+          <figcaption>Attention weights encode clinically meaningful information.</figcaption>
+        </figure>
+      </div>
+      <!-- Text -->
+      <div class="column is-half">
+        <p>
+          We tested whether attention weights alone can indicate patient risk. Using an XGBoost classifier on the attention vectors, we achieved over 90% precision and recall for both low- and high-risk states, demonstrating that the model’s attention encodes clinically meaningful information.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<!-- End Study 4 Section -->
 <!-- End Results Section -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/rl_cycle.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
 
 
 
