@@ -522,7 +522,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       <!-- Left: Text -->
       <div class="column is-half">
         <p>
-          We analyzed how clinicians and our RL agent make treatment decisions across patient risk levels, by examining their action 
+          We analyzed how clinicians and our RL agent make treatment decisions across patient risk levels by examining their action 
           histogram matrices, where each cell represents the proportion (%) of actions taken for a specific
           combination of VPs (x-axis) and IV fluid doses (y-axis).
         </p>
@@ -532,7 +532,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
       <div class="column is-half has-text-centered">
         <figure>
           <img src="static/images/exp2.1.jpg" alt="Second experiment result" style="border-radius:10px; width:100%;">
-          <figcaption>.</figcaption>
+          <figcaption></figcaption>
         </figure>
       </div>
     </div>
@@ -568,25 +568,25 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     </p>
 
     <!-- Passage 1: Effect of Context Size (image left) -->
-    <div class="columns is-vcentered mb-6 is-mobile">
-      <div class="column is-half has-text-centered is-half-mobile">
-        <figure>
-          <img src="static/images/exp3.1.jpg" alt="Effect of context size" style="border-radius:10px; width:100%;">
-          <figcaption></figcaption>
-        </figure>
-      </div>
-      <div class="column is-half">
+    <div class="columns is-vcentered mb-6 ">
+        <div class="column is-half">
         <p>
           <strong>Effect of Context Size</strong><br>
           Models were trained with different numbers of past patient states (1, 5, 10, 20, ... minutes) and evaluated for estimated return.  
           Performance improved up to 60 minutes of context; longer sequences slightly reduced performance.
         </p>
       </div>
+      <div class="column is-half has-text-centered ">
+        <figure>
+          <img src="static/images/exp3.1.jpg" alt="Effect of context size" style="border-radius:10px; width:100%;">
+          <figcaption></figcaption>
+        </figure>
+      </div>
     </div>
 
     <!-- Passage 2: Layer-Wise Attention Patterns (image right) -->
-    <div class="columns is-vcentered mb-6 is-mobile">
-      <div class="column is-half is-half-mobile">
+    <div class="columns is-vcentered mb-6 ">
+      <div class="column is-half ">
         <p>
           <strong>Layer-Wise Attention Patterns</strong><br>
           Attention weights of the 60-minute model reveal distinct temporal focus per layer.  
@@ -603,19 +603,20 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     </div>
 
     <!-- Passage 3: Attention Interpretability (image left) -->
-    <div class="columns is-vcentered mb-6 is-mobile">
-      <div class="column is-half is-half-mobile has-text-centered">
-        <figure>
-          <img src="static/images/exp3.3.jpg" alt="Attention interpretability" style="border-radius:10px; width:100%;">
-          <figcaption></figcaption>
-        </figure>
-      </div>
-      <div class="column is-half is-half-mobile">
+    <div class="columns is-vcentered mb-6 ">
+
+        <div class="column is-half">
         <p>
           <strong>Attention Interpretability</strong><br>
           Using only attention vectors as features, an XGBoost classifier predicted low- vs. high-risk patient states with >90% precision and recall.  
           This shows that the model’s attention encodes meaningful clinical information.
         </p>
+      </div>
+      <div class="column is-half  has-text-centered">
+        <figure>
+          <img src="static/images/exp3.3.jpg" alt="Attention interpretability" style="border-radius:10px; width:100%;">
+          <figcaption></figcaption>
+        </figure>
       </div>
     </div>
 
