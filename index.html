@@ -568,7 +568,6 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
         <p>
           <strong>Layer-Wise Attention Patterns</strong><br>
           Attention weights of the 60-minute model reveal distinct temporal focus per layer.  
-          Let <em>{s<sub>t-60</sub>, … , s<sub>t</sub>}</em> be the input sequence. Attention at timestep <em>t</em>, head <em>h</em>, layer <em>l</em> is <em>A<sub>t</sub><sup>(l,h)</sup> ∈ ℝ<sup>T</sup></em>, where <em>A<sub>t</sub><sup>(l,h)</sup>[i]</em> is the weight for the <em>i</em>-th past state.  
           The average attention across <em>N</em> sequences and <em>H</em> heads is <em>Ā<sup>(l)</sup>.
           Layer 1 focuses on recent states, Layer 2 on earlier states, capturing complementary temporal information.
         </p>
