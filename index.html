@@ -388,8 +388,7 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <div class="columns is-vcentered mb-6">
       <div class="column is-half">
         <p>
-          <strong>Action (A):</strong> A combination of two medication doses - vasopressor and IV fluids. 
-          A “zero dose” (no drug) is also possible.
+          <strong>Action (A):</strong> A combination of vasopressor and IV fluid doses, selected from 36 possible options, including a “zero dose” (no drug).
         </p>
       </div>
       <div class="column is-half">
@@ -425,34 +424,43 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
 <!-- End Problem Formulation Section -->
 
 
-<!-- Motivation Section -->
+<!-- Learning Section -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title">Learning</h2>
-    <div class="content">
+
+    <!-- First Image -->
+    <div class="columns is-centered mb-6">
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="static/images/method.jpg" alt="image 1" style="border-radius: 10px;">
+          <figcaption>Deep learning method for dose recommendation using a parametrized Q-function.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="content mb-6">
       <p>
-We train a transformer-based Q-network to predict action values from patient states. The model takes as input a sequence of recent patient states, allowing it to capture how the patient’s condition evolves over time. The agent minimizes the Bellman error between predicted and target Q-values, gradually learning to select actions that optimize treatment outcomes.
+        We train an attention-based Q-network to predict action values from patient states. 
+        The model takes as input a sequence of recent patient states, allowing it to capture how the patient’s condition evolves over time. 
+        We use clinical data with a 1-minute resolution to capture rapid physiological changes, unlike previous studies that use 1–4 hour intervals.
       </p>
     </div>
 
-    <!-- Two images side by side -->
+    <!-- Second Image -->
     <div class="columns is-centered">
       <div class="column is-half has-text-centered">
         <figure>
-          <img src="static/images/method.jpg" alt="Motivation image 1" style="border-radius: 10px;">
-          <figcaption>Illustration of the data scarcity problem.</figcaption>
-        </figure>
-      </div>
-      <div class="column is-half has-text-centered">
-        <figure>
-          <img src="static/images/architecture.jpg" alt="Motivation image 2" style="border-radius: 10px;">
-          <figcaption>Transfer of knowledge from related tasks.</figcaption>
+          <img src="static/images/architecture.jpg" alt="image 2" style="border-radius: 10px;">
+          <figcaption>The attention-based Q-network architecture.</figcaption>
         </figure>
       </div>
     </div>
+
   </div>
 </section>
-<!-- End Motivation Section -->
+<!-- End Learning Section -->
 
 
 <!-- Image carousel -->
