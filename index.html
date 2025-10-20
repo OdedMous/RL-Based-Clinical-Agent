@@ -477,9 +477,12 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     <h2 class="title">Results</h2>
 
     <!-- First Experiment -->
-    <h3 class="subtitle">First Experiment</h3>
+    <h3 class="subtitle">Agent Performance Comparison</h3>
     <p>
-      Description of the first experiment goes here. Explain what was tested, the main metrics, and key observations in a few sentences.
+    We evaluated our RL agent against five other agents: Clinicians, Zero-Dose, Max-Dose, Random-Dose, and Supervised Learning (SL).
+    Our RL agent achieved the highest median return, demonstrating its superior treatment performance.
+     
+     
     </p>
     <div class="columns is-centered mb-6">
       <div class="column is-two-thirds has-text-centered">
@@ -491,27 +494,21 @@ In this paper, we describe a novel, one minute-by-minute RL model that includes 
     </div>
 
     <!-- Second Experiment -->
-    <h3 class="subtitle">Second Experiment</h3>
+    <h3 class="subtitle">Clinicians vs RL decision-making analysis</h3>
     <p>
-      Description of the second experiment goes here. Explain setup, evaluation metrics, and any important findings.
+    We analyzed how clinicians and our RL agent make treatment decisions across patient risk levels.
+    The RL agent, like the Clinicians, exhibits risk-aware behavior, administering higher doses for high-risk patients. However, for these high-risk states, it consistently provides some medication, rarely selecting zero-dose actions, unlike clinicians who sometimes withhold treatment.
+    
     </p>
+    
     <div class="columns is-vcentered mb-6">
-      <!-- Left Image -->
-      <div class="column is-half has-text-centered">
+      <div class="column is-two-thirds has-text-centered">
         <figure>
           <img src="static/images/exp1.jpg" alt="Second experiment result left" style="border-radius:10px; width:100%;">
           <figcaption>Left-side results of second experiment.</figcaption>
         </figure>
       </div>
 
-      <!-- Right Image -->
-      <div class="column is-half has-text-centered">
-        <figure>
-          <img src="static/images/exp1.jpg" alt="Second experiment result right" style="border-radius:10px; width:100%;">
-          <figcaption>Right-side results of second experiment.</figcaption>
-        </figure>
-      </div>
-    </div>
 
   </div>
 </section>
